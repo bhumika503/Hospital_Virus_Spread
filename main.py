@@ -4,7 +4,8 @@ from model_virus import ModelVirusSpread
 
 
 def calculate_min_time(A,M,N,B):
-
+    # A: static state of the hospital at start of each time unit
+    # B: intermediate dynamic state of hospital during and end of time unit.
     time_counter = 0
     while True:
         if list(zip(*np.where(np.array(B) == 1))):
@@ -17,40 +18,51 @@ def calculate_min_time(A,M,N,B):
             # print(time_counter)
 
             if count == 0:
-            # count 0 -> if no change in A and B after interaction
-                return -1
+            # if count== 0: no change in A and B after virus spread modelling
+                return str(-1)
             else:
                 # Update the state after one time unit
                 A = B.copy()
                 continue
 
         else:
-            return time_counter
+            return str(time_counter)
 
+def text2matrix(txt, r,c):
+    # txt = "[[5, 3, 4], [1, 5, 8]]"
+    x = txt.replace(".",'').replace("[",'').replace("]",'').replace(",",'').replace(' ','')
+
+    list_a = [int(i) for i in x]
+
+    array = np.reshape(list_a, (r,c))
+
+    return array
 
 if __name__ == '__main__':
 
-    # Input the rows and columns of the hospital
-    # Example Input: 3,3
+    # 1. Input the rows and columns of the hospital
+    # Example Input: 3,5
     r, c = input('Input # rows and #columns :').split(',')
 
-    rows = int(r)
-    columns = int(c)
+    M = int(r)
+    N = int(c)
 
-    # A: 2-D array
-    # A: Initial State
-    # Random matrix is constructed
+    # 2. A: 2-D array and initial state
+    # Example input: [[2,1,0,2,1],[1,1,1,1,1],[1,0,0,2,1]]
+    matrix_str = input('Input the 2-D array :')
+    A = text2matrix(matrix_str, M, N)
 
-    A = np.random.randint(3, size=(rows, columns))
+    # # other options for inputs
+    # # Construct random matrix
+    # A = np.random.randint(3, size=(M, N))
+
+    # # Input example from pdf
+    # A = [[2,1,0,2,1],[1,1,1,1,1],[1,0,0,2,1]]
 
     # B: Transient state used to update the matrix after virus interactions.
     B = A.copy()
-
-    M,N = np.shape(A)
-
-    # Input from pdf
-    # A = [[2,1,0,2,1],[1,1,1,1,1],[1,0,0,2,1]]
-    # B = [[2,1,0,2,1],[1,1,1,1,1],[1,0,0,2,1]]
+    #
+    # M,N = np.shape(A)
 
     output = calculate_min_time(A,M,N,B)
-    print(str(output))
+    print(output)

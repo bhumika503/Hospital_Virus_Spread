@@ -1,5 +1,6 @@
 
 class Traverse:
+    # generates traversal possibilities for the virus
     # traverse in top,right,bottom,left direction
     # relative to current position in 2D Array
     def top(y,x,M,N):
@@ -35,6 +36,7 @@ class Traverse:
         return y, x
 
     def valid_traversals(y,x,M,N):
+        # generates possible traversals for virus from source ward.
 
         # exclude the traversals which result in same coordinates as starting point
         return [(y_next, x_next) for (y_next,x_next) in [Traverse.top(y,x,M,N), Traverse.right(y,x,M,N), Traverse.below(y,x,M,N),Traverse.left(y,x,M,N)] if (y_next, x_next) != (y, x)]
