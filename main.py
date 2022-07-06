@@ -31,12 +31,10 @@ def calculate_min_time(A,M,N,B):
 def text2matrix(txt, r,c):
     # txt = "[[5, 3, 4], [1, 5, 8]]"
     x = txt.replace(".",'').replace("[",'').replace("]",'').replace(",",'').replace(' ','')
-
     list_a = [int(i) for i in x]
-
     array = np.reshape(list_a, (r,c))
-
     return array
+
 
 if __name__ == '__main__':
 
@@ -61,7 +59,7 @@ if __name__ == '__main__':
 
     # B: Transient state used to update the matrix after virus interactions.
     B = A.copy()
-    #
+
     # M,N = np.shape(A)
 
     output = calculate_min_time(A,M,N,B)
