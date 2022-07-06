@@ -1,4 +1,4 @@
-# About Hospital_Virus_Spread
+### About Hospital_Virus_Spread
 
 ### Instructions:
 1. compiled with Python 3.7.4
@@ -8,7 +8,8 @@
 
 ### Scripts
 1. main.py
-- contains the main function that gives the minimum time taken for the virus to spread entirely in the hospital wards.
+- takes the input for the ward dimensions and the initial ward occupancy and infection state.
+- executes the main function that gives the minimum time taken for the virus to spread entirely in the hospital wards.
 
 2. traverse.py
 - contains the functions for the virus to traverse to different locations such as top, bottom, left and right of the current ward.
@@ -16,7 +17,7 @@
 3. model_virus.py
 - contains the functions that:
 1. model the interaction amongst infected wards, uninfected wards and empty wards.
-2. Model the virus spread and store the infection state of each ward per time unit.
+2. model the virus spread and store the infection state of each ward per time unit.
 
 
 ### Logic of the code.
