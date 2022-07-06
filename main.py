@@ -1,36 +1,10 @@
 import numpy as np
 
 
+from traverse import Traverse
 
-def top(y,x):
-    if y == 0:
-        y
-    else:
-        y = y-1
-    return y, x
 
-def below(y,x):
-    if y == M-1:
-        y
-    else:
-        y = y+1
-    return y,x  # XXX:
-
-def left (y,x):
-    if x == 0:
-        x
-    else:
-        x = x-1
-    return y, x
-
-def right(y,x):
-    if x == N-1:
-        x
-    else:
-        x = x+1
-    return y, x
-
-def reaction(incoming, present):
+def interaction(incoming, present):
     if incoming == 2 and present == 1:
         present = 2
     else:
@@ -40,11 +14,11 @@ def reaction(incoming, present):
 def action(A, y, x, B):
     incoming = A[y][x]
     if incoming == 2:
-        valid_directions = [(y_next, x_next) for (y_next,x_next) in [top(y,x), right(y,x), below(y,x),left(y,x)] if (y_next, x_next) != (y, x)]
+        valid_directions = [(y_next, x_next) for (y_next,x_next) in [Traverse.top(y,x,M,N), Traverse.right(y,x,M,N), Traverse.below(y,x,M,N),Traverse.left(y,x,M,N)] if (y_next, x_next) != (y, x)]
         for (y_next,x_next) in valid_directions:
 
             present = A[y_next][x_next]
-            B[y_next][x_next] = reaction(incoming, present)
+            B[y_next][x_next] = interaction(incoming, present)
     else:
         pass
 
