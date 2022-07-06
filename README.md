@@ -7,7 +7,7 @@
 #### contains the functions for the virus to traverse to different locations such as top, bottom, left and right of the current ward.
 
 ### model_virus.py
-#### contains the functions that
+#### contains the functions that:
 #### 1. model the interaction amongst infected wards, uninfected wards and empty wards.
 #### 2. Model the virus spread and store the infection state of each ward per time unit.
 
