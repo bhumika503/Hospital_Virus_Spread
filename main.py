@@ -53,4 +53,4 @@ if __name__ == '__main__':
     # B = [[2,1,0,2,1],[1,1,1,1,1],[1,0,0,2,1]]
 
     output = calculate_min_time(A,M,N,B)
-    print(output)
+    print(str(output))
