@@ -1,10 +1,10 @@
 # About Hospital_Virus_Spread
 
 ### Instructions:
-##### compiled with Python 3.7.4
-##### check and pip install required packages in requirements.txt
-##### Run main.py and enter the required inputs.
-##### Output is the minimum time taken for the virus to spread. 
+1. compiled with Python 3.7.4
+2. check and pip install required packages in requirements.txt
+3. Run main.py and enter the required inputs.
+4. Output is the minimum time taken for the virus to spread. 
 
 ### main.py
 #### contains the main function that gives the minimum time taken for the virus to spread entirely in the hospital wards.
